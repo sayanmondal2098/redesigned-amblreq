@@ -50,7 +50,17 @@ export default function Mapview() {
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} />
+      <MapView style={styles.map} 
+      region={location}
+      initialRegion={{
+          "latitude": 39.97343096953564,
+          "latitudeDelta": 0.0922,
+          "longitude": -75.12520805829233,
+          "longitudeDelta": 0.0421,
+      }}
+      onRegionChange={region => setRegion(region)}
+      
+      />
     </View>
   );
 }

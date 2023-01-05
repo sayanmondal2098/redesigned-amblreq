@@ -10,6 +10,7 @@ import Mapview from "./screens/Mapview";
 import SignupScreen from "./screens/SignupScreen";
 import FareDetails from "./screens/FareDetails";
 import MapScreen from "./screens/MapScreen";
+import Test from "./screens/Test";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,15 @@ export default function App() {
           <Stack.Screen
             name="MapScreen"
             component={MapScreen}
+            options={{
+              headerShown: false
+            }}
+          />
+
+
+          <Stack.Screen
+            name="Test"
+            component={Test}
             options={{
               headerShown: false
             }}
