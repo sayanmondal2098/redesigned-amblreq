@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import MapView from 'react-native-maps';
-import { StyleSheet, View } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { useNavigation, navigate } from "@react-navigation/native";
 
 
 export default function Mapview() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -19,7 +19,7 @@ export default function Mapview() {
 
   useEffect(() => {
     (async () => {
-      
+
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
@@ -43,16 +43,14 @@ export default function Mapview() {
     longitude = location['coords']['longitude']
   }
 
-    state = {
-        mapRegion: { latitude: latitude, longitude: longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 },
-        
-      };
+  state = {
+    mapRegion: { latitude: latitude, longitude: longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 },
+
+  };
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} 
-      region={{ latitude: latitude, longitude: longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-      />
+      <MapView style={styles.map} />
     </View>
   );
 }

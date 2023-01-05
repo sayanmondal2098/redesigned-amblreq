@@ -5,8 +5,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import Discover from "./screens/Discover";
-import ItemScreen from "./screens/ItemScreen";
+import LoginScreen from "./screens/LoginScreen";
 import Mapview from "./screens/Mapview";
+import SignupScreen from "./screens/SignupScreen";
+import FareDetails from "./screens/FareDetails";
+import MapScreen from "./screens/MapScreen";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -15,10 +19,45 @@ export default function App() {
     <TailwindProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Discover" component={Discover} />
-          <Stack.Screen name="ItemScreen" component={ItemScreen} />
-          <Stack.Screen name="Mapview" component={Mapview} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+          />
+          <Stack.Screen
+            name="Discover"
+            component={Discover}
+          />
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{
+              headerShown: false
+            }} />
+          <Stack.Screen
+            name="SignupScreen"
+            component={SignupScreen}
+            options={{
+              headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="FareDetails"
+            component={FareDetails}
+            options={{
+              headerShown: false
+            }}
+          />
+          <Stack.Screen name="Mapview"
+            component={Mapview}
+          />
+
+          <Stack.Screen
+            name="MapScreen"
+            component={MapScreen}
+            options={{
+              headerShown: false
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>

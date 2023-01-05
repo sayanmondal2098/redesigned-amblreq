@@ -58,7 +58,7 @@ const HomeScreen = () => {
         />
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("Discover")}
+          onPress={() => navigation.navigate("LoginScreen")}
           className="absolute bottom-20 w-24 h-24 border-l-2 border-r-2 border-t-4 border-[#00BCC9] rounded-full items-center justify-center"
         >
           <Animatable.View
