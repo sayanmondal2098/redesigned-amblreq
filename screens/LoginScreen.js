@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import { getUserDate } from '../api';
 import { createTwoButtonAlert } from '../api/Alert';
+import { ValidateUser } from '../api/ValidateUser';
 import { AsyncStorage } from 'react-native';
+
+
 
 const LoginScreen = () => {
 
   const [email, setemailAddress] = useState('');
   const [password, setPassword] = useState('');
-  //const [loggetId, setloggetId] = useState('');
+  const [loggetId, setloggetId] = useState('');
 
-  // AsyncStorage.getItem("LogedId").then((value) => {
-  //   setloggetId(value)
-  // })
+  AsyncStorage.getItem("LogedId").then((value) => {
+    setloggetId(value)
+  })
     
 
   const loginHandler = () => {
-    getUserDate(email);
-    //AsyncStorage.getItem('loggetId').then((v) => setloggetId(v) )
-    //console.log(" ================ " + loggetId)
-    createTwoButtonAlert('Login Info', email );
+//    getUserDate(email);
+    var info = ValidateUser(email);
+    setTimeout(() => {console.log("Wait")}, 2000);
+   AsyncStorage.getItem('loggetId').then((v) => setloggetId(v) )
+
+    console.log(" ================ " + JSON.stringify(info));
+    setTimeout(() => {createTwoButtonAlert('Login Info', toString(info) );}, 2500);
+
   }
 
   const navigation = useNavigation();
@@ -119,6 +125,12 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "white"
+  },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 80
   }
 });
 
