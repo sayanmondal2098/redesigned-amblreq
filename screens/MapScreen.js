@@ -4,6 +4,7 @@ import * as Location from 'expo-location'
 import * as Permissions from 'expo-permissions'
 import { StyleSheet, Text, TextInput ,View, TouchableOpacity, Alert } from 'react-native'
 import { Card } from 'react-native-paper'
+import { getDriver } from '../api/GetDriver'
 
 const { useState, useEffect } = React
 
@@ -49,19 +50,10 @@ const MapScreen = () => {
         return <Text>Map region doesn't exist.</Text>
     }
 
-    const createTwoButtonAlert = () =>
-        Alert.alert(
-            "Confirm Booking",
-            locationResult + "====== " + fromAddress + "===== "+ hospitalAddress,
-            [
-                {
-                    text: "Cancel",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                },
-                { text: "Book", onPress: () => console.log("Booking Pressed") }
-            ]
-        );
+    const bookingHandler = () =>{
+        setTimeout(() => {console.log("Wait")}, 2000);
+        getDriver(fromAddress);
+    }
 
 
     return (
@@ -104,7 +96,7 @@ const MapScreen = () => {
                         
                         onChangeText={text => sethospitalAddress(text)} />
                 </View>
-                <TouchableOpacity style={styles.loginBtn} onPress = {createTwoButtonAlert} >
+                <TouchableOpacity style={styles.loginBtn} onPress={() => bookingHandler()} >
                     <Text style={styles.loginText}>Book to {hospitalAddress}</Text>
                 </TouchableOpacity>
             </View>

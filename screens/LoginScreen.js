@@ -20,12 +20,12 @@ const LoginScreen = () => {
 
   const loginHandler = () => {
 //    getUserDate(email);
-    var info = ValidateUser(email);
+    ValidateUser(email);
     setTimeout(() => {console.log("Wait")}, 2000);
    AsyncStorage.getItem('loggetId').then((v) => setloggetId(v) )
 
-    console.log(" ================ " + JSON.stringify(info));
-    setTimeout(() => {createTwoButtonAlert('Login Info', toString(info) );}, 2500);
+    //console.log(" ================ " + JSON.stringify(info));
+    setTimeout(() => {createTwoButtonAlert('Login Info', "Hello Change it" );}, 2500);
 
   }
 
