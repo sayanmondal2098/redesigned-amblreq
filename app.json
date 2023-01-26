@@ -2,7 +2,7 @@
   "expo": {
     "name": "Ambulance Req App",
     "slug": "Easy-Book-Anytime",
-    "version": "1.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/icons.png",
     "userInterfaceStyle": "light",
@@ -22,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icons.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ph3n1xsan.EasyBookAnytime"

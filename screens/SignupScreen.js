@@ -4,7 +4,13 @@ import { useNavigation } from "@react-navigation/native";
 
 const SignupScreen = () => {
 
-  const [email, password] = useState(0);
+  const [email, setemailAddress] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setfirstName] = useState('');
+
+  const [lastName, setlastName] = useState('');
+  const [phone, setPhone] = useState('');
+
 
   const navigation = useNavigation();
 
@@ -17,28 +23,28 @@ const SignupScreen = () => {
             style={styles.inputText}
             placeholder="Email..." 
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={text => setemailAddress(text)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
             placeholder="First Name" 
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={text => setfirstName(text)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
             placeholder="Last Name" 
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={text => setlastName(text)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
-            placeholder="Email..." 
+            placeholder="Phone..." 
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={text => setPhone(text)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
@@ -46,7 +52,7 @@ const SignupScreen = () => {
             style={styles.inputText}
             placeholder="Password..." 
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password:text})}/>
+            onChangeText={text => setPassword(text)}/>
         </View>
         <TouchableOpacity style={styles.loginBtn}>
           <Text style={styles.loginText}>Signup</Text>

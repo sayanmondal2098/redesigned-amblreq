@@ -4,6 +4,7 @@ import * as Animatable from "react-native-animatable";
 import { useNavigation, navigate } from "@react-navigation/native";
 
 import * as Location from 'expo-location';
+import { getUserDate } from '../api';
 
 export default function Discover() {
   const navigation = useNavigation();
@@ -59,6 +60,7 @@ export default function Discover() {
       <Text className = "text-[38px] font-bold">{altitudeAccuracy}</Text>
 
       <Text className = "text-[38px] font-bold">{altitude}</Text>
+      <Text> {getUserDate('ts.gmail.com')}</Text>
 
 
       
